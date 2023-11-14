@@ -1,6 +1,6 @@
 <?php
-require_once "app/User.php";
-require_once "check.php";
+require_once "../app/User.php";
+require_once "../app/check.php";
 if($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['signup'])){
   $obj = new User;
   $obj->uname = $_POST['name']; 
@@ -21,7 +21,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['signup'])){
     <title>Signup page</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="css/style.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
   </head>
   <body>
 <div class="form">

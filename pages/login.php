@@ -1,6 +1,6 @@
 <?php
-require_once "app/User.php";
-require_once "check.php";
+require_once "../app/User.php";
+require_once "../app/check.php";
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["login"])) {
   $obj = new User();
   $obj->email = $_POST["email"];
@@ -20,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["login"])) {
     <title>Login Page</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="css/style.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
   </head>
   <body>
 <div class="form">

@@ -1,8 +1,10 @@
 <?php
 session_start();
 if(!isset($_SESSION['user'])){
-  header('Location: ./login.php');
+  header('Location: ./pages/login.php');
   exit();
+} else {
+header("Location: ./pages/dashboard.php");
 }
 ?>
 <!DOCTYPE html>
@@ -17,10 +19,10 @@ if(!isset($_SESSION['user'])){
     <nav>
       <ul>
         <li>
-          <a href="./login.php">Login</a>
+          <a href="./pages/login.php">Login</a>
         </li>
         <li>
-          <a href="./signup.php">Signup</a>
+          <a href="./pages/signup.php">Signup</a>
         </li>
       </ul>
     </nav>
