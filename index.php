@@ -1,32 +1,24 @@
 <?php
+define("APP_ROOT", __DIR__);
+
+require_once APP_ROOT . "/vendor/autoload.php";
+
+// autoloader for namespaced classes
+spl_autoload_register(function ($class) {
+  $classFile = str_replace("\\", DIRECTORY_SEPARATOR, $class . ".php");
+
+  $classPath = APP_ROOT . "/app/" . $classFile;
+
+  if (file_exists($classPath)) {
+    require_once $classPath;
+  }
+});
+
 session_start();
-if(!isset($_SESSION['user'])){
-  header('Location: ./pages/login.php');
-  exit();
-} else {
-header("Location: ./pages/dashboard.php");
-}
-?>
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title></title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="css/style.css" rel="stylesheet">
-  </head>
-  <body>
-    <nav>
-      <ul>
-        <li>
-          <a href="./pages/login.php">Login</a>
-        </li>
-        <li>
-          <a href="./pages/signup.php">Signup</a>
-        </li>
-      </ul>
-    </nav>
 
+use App\Services\Route;
+$route = new Route();
 
-  </body>
-</html>
+require_once APP_ROOT . "/routes/route.php";
+
+$route->handle();
