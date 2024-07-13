@@ -28,3 +28,19 @@ function pageAdd($file_path)
 {
   include_once APP_ROOT . "/pages/" . $file_path;
 }
+
+if (!function_exists('dd'))
+{
+  function dd(...$vars)
+  {
+    echo "<pre>";
+    foreach ($vars as $var)
+    {
+      print_r($var);
+     // Or var_dump($var, true); 
+      echo "\n";
+    }
+    echo "</pre>";
+    die();
+  }
+}
